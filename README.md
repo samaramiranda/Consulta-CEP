@@ -5,7 +5,7 @@
 
 ## :rocket: Sobre o projeto
 
-Este é um site de consulta de endereço por meio do CEP.
+Durante os meus estudos sobre Fetch API eu desenvolvi este site de consulta de endereço por meio do CEP.
 
 Para a consulta dos dados foi utilizada a API do "ViaCEP" e a Fetch API.
 
