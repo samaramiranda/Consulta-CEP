@@ -11,25 +11,28 @@ const showData = (result) => {
   }
 }
 
-cep.addEventListener("blur", (event) => {
+cep.addEventListener("keyup", (event) => {
   let search = cep.value.replace("-", "")
 
-  //definindo as opções para acesso com fetch
-  const options = {
-    method: "GET",
-    mode: "cors",
-    cache: "default"
-  }
+  if(cep.value.length == 9){
 
-  //acessando a API
-  fetch(`https://viacep.com.br/ws/${search}/json/`, options)
-    .then((response) => {//se o acesso a API der certo retorna um JSON
-      response.json()
-        .then((data) => {//se o retorno em JSON der certo retorna os dados dele
-          showData(data)
-        })
-    })
-    .catch((error) => {//se o acesso a API der errado retorna a mensagem de erro
-      console.log("ERRO: " + error.message)
-    })
+  //definindo as opções para acesso com fetch
+    const options = {
+      method: "GET",
+      mode: "cors",
+      cache: "default"
+    }
+  
+    //acessando a API
+    fetch(`https://viacep.com.br/ws/${search}/json/`, options)
+      .then((response) => {//se o acesso a API der certo retorna um JSON
+        response.json()
+          .then((data) => {//se o retorno em JSON der certo retorna os dados dele
+            showData(data)
+          })
+      })
+      .catch((error) => {//se o acesso a API der errado retorna a mensagem de erro
+        console.log("ERRO: " + error.message)
+      })
+  }
 })
